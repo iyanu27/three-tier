@@ -25,8 +25,8 @@ class App extends Component {
     }
 
     render() {
-        const {user} = this.props;
-        const {state, isLoggingIn, errorMessage} = this.props; // The state prop is for debugging purposes
+        const {user, isLoggingIn, errorMessage} = this.props;
+        const {state} = this.props; // The state prop is for debugging purposes
 
         let userPanel;
         switch (user) {
