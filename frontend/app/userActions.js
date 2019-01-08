@@ -13,8 +13,6 @@ const API_PREFIX = (process.env.NODE_ENV === 'production') ? '' : '/api';
 
 export const userActions = {
     getUserStatus: () => dispatch => {
-        dispatch({type: USER_ACTIONS.START_LOGIN});
-
         axios.get(`${API_PREFIX}/user/status`).then(
             response => {
                 const {user} = response.data;
@@ -30,13 +28,12 @@ export const userActions = {
             } else {
                 alert(`an error occurred: ${error}`); // Not expecting any other errors
             }
-        }).finally(() => {
-            dispatch({type: USER_ACTIONS.END_LOGIN});
-        });
+        })
     },
 
     login: (username, password) => dispatch => {
         dispatch({type: USER_ACTIONS.LOGIN_RESET}); // Reset login message
+        dispatch({type: USER_ACTIONS.START_LOGIN}); // Reset login message
 
         axios.post(`${API_PREFIX}/user/login`, {username, password}).then(
             response => {
@@ -52,7 +49,9 @@ export const userActions = {
                 message = error.response.data.message || message;
             }
             dispatch({type: USER_ACTIONS.LOGIN_FAILURE, message})
-        })
+        }).finally(() => {
+            dispatch({type: USER_ACTIONS.END_LOGIN});
+        });
     },
 
     logout: (username, password) => dispatch => {
