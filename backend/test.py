@@ -43,6 +43,7 @@ class TestApp(unittest.TestCase):
 
     def test_incorrect_status(self):
         res = self.test_client.get('/user/status')
+
         assert res.status_code == 401
 
     def test_correct_status(self):

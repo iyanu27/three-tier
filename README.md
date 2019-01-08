@@ -1,5 +1,7 @@
 ## A 3-tier environment
 
+[![CircleCI](https://circleci.com/gh/sriv1211/three-tier/tree/master.svg?style=svg)](https://circleci.com/gh/sriv1211/three-tier/tree/master)
+
 A 3-tier environment often consists of 
 1. a UI frontend, typically a browser or app
 2. a server which which performs server-side logic, and
