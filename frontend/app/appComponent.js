@@ -50,7 +50,9 @@ class App extends Component {
                             <input type="text" ref={p => this.password = p} defaultValue="demo"/>
 
                             <p>&nbsp;</p>
-                            <button type="submit">Login</button>
+                            <button type="submit">
+                                {isLoggingIn && 'Loading...' || 'Login'}
+                            </button>
                         </form>
                     </div>
                 );
