@@ -3,6 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import SingletonThreadPool
 
 Base = declarative_base()
 
@@ -23,7 +24,7 @@ Base = declarative_base()
 # ))
 
 # For development purposes we're using sqlite
-engine = create_engine('sqlite:////tmp/app.db')
+engine = create_engine('sqlite:////tmp/app.db', poolclass=SingletonThreadPool)
 
 Session = sessionmaker(bind=engine)
 session = Session()

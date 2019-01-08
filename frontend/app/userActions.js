@@ -33,7 +33,7 @@ export const userActions = {
 
     login: (username, password) => dispatch => {
         dispatch({type: USER_ACTIONS.LOGIN_RESET}); // Reset login message
-        dispatch({type: USER_ACTIONS.START_LOGIN}); // Reset login message
+        dispatch({type: USER_ACTIONS.START_LOGIN}); // Reset loading message
 
         axios.post(`${API_PREFIX}/user/login`, {username, password}).then(
             response => {
