@@ -16,6 +16,8 @@ app.config['MODE'] = os.environ.get('APP_MODE', 'development')
 def before_request():
     if app.config['MODE'] == 'production':
         time.sleep(1)  # Simulate network delay
+    else:
+        time.sleep(0.5)  # Simulate network delay
 
 
 @app.route('/dist/<path:path>')
