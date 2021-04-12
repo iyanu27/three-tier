@@ -36,7 +36,7 @@ class App extends Component {
             case false:
                 userPanel = (
                     <div>
-                        <p>Login with username demo and password demo</p>
+                        <p>Login with username and password</p>
                         <form onSubmit={this.login.bind(this)}>
                             {errorMessage && (
                                 <p style={{color: 'red'}}>{errorMessage}</p>
@@ -47,7 +47,7 @@ class App extends Component {
                             <p>&nbsp;</p>
 
                             <label>Password</label><br/>
-                            <input type="text" ref={p => this.password = p} defaultValue="demo"/>
+                            <input type="password" ref={p => this.password = p} defaultValue="demo"/>
 
                             <p>&nbsp;</p>
                             <button type="submit">
